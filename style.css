@@ -1,0 +1,22 @@
+body {
+	margin: 0;
+	background: white;
+	font-family: Arial;
+	color: #466072; /*blue-grey*/
+}
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	text-align: left;
+	font-size: 16px;
+}
+
+.container {
+	display: flex;
+	margin-left: auto;
+    margin-right: auto;
+    width: 550px;
+}
