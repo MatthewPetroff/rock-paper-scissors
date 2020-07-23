@@ -10,50 +10,25 @@ function randomChoice() {
 }
 
 function result(playerChoice, computerChoice) {
-	if (playerChoice === 'rock') {
-		if (computerChoice === 'rock') {
-			return 'Draw';
-		} else if (computerChoice === 'paper') {
-			return 'You lose...';
-		} else {
-			return 'You win!!!';
-		}
-	} else if (playerChoice === 'paper') {
-		if (computerChoice === 'rock') {
-			return 'You win!!!';
-		} else if (computerChoice === 'paper') {
-			return 'Draw';
-		} else {
-			return 'You lose...';
-		}
+	if (playerChoice === 'rock' && computerChoice === 'paper') {
+		return 'You lose...';
+	} else if (playerChoice === 'rock' && computerChoice === 'scissors') {
+		return 'You win!!!';
+	} else if (playerChoice === 'paper' && computerChoice === 'scissors') {
+		return 'You lose...';
+	} else if (playerChoice === 'paper' && computerChoice === 'rock') {
+		return 'You win!!!';
+	} else if (playerChoice === 'scissors' && computerChoice === 'rock') {
+		return 'You lose...';
+	} else if (playerChoice === 'scissors' && computerChoice === 'paper') {
+		return 'You win!!!';
 	} else {
-		if (computerChoice === 'rock') {
-			return 'You lose...';
-		} else if (computerChoice === 'paper') {
-			return 'You win!!!';
-		} else {
-			return 'Draw';
-		}
+		return 'Draw';
 	}
-}
+}	
 
-function rock() {
+function play(choice) {
 	const computerChoice = randomChoice();
-	const winner = result('rock', computerChoice);
-	//console.log(computerChoice);
-	//console.log(winner);
-}
-
-function paper() {
-	const computerChoice = randomChoice();
-	const winner = result('paper', computerChoice);
-	//console.log(computerChoice);
-	//console.log(winner);
-}
-
-function scissors() {
-	const computerChoice = randomChoice();
-	const winner = result('scissors', computerChoice);
-	//console.log(computerChoice);
-	//console.log(winner);
+	const outcome = result(choice, computerChoice);
+	document.getElementById('result').innerHTML = `Result: ${outcome}`;
 }
