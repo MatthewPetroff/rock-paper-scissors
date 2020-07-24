@@ -14,6 +14,10 @@ h2 {
 	font-size: 16px;
 }
 
+input {
+	outline: none;
+}
+
 .container {
 	display: flex;
 	margin-left: auto;
