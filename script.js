@@ -23,9 +23,9 @@ function result(playerChoice, computerChoice) {
 	} else if (playerChoice === 'paper' && computerChoice === 'rock') {
 		win++;
 	} else if (playerChoice === 'scissors' && computerChoice === 'rock') {
-		loss++
+		loss++;
 	} else if (playerChoice === 'scissors' && computerChoice === 'paper') {
-		win++
+		win++;
 	} else {
 		draw++;
 	}
