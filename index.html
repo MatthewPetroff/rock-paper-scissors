@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RPS</title>	
+    <title>Play RPS</title>	
     <link rel='stylesheet' href='style.css'>  
     <script src="script.js"></script>
   </head>
@@ -10,27 +10,24 @@
   	  <h1>Rock, Paper, Scissors</h1>
     </header>
     <main>
-      <br>
-      <div class='container'>
-      	<h2>Choose one</h2>
-      </div>	
+      <h1>PLAYER</h1>	
   	  <div class='container'>
   	  	<input type='image' id='rock' src='images/rock.png' onclick="play('rock')"/>
   	  	<input type='image' id='paper' src='images/paper.png' onclick="play('paper')"/>
   	  	<input type='image' id='scissors' src='images/scissors.png' onclick="play('scissors')"/>
   	  </div>
-      <div class='container'>
-      	<h2>Computer chooses</h2>
-      </div>
+  	  <br>
+      <h1>COMPUTER</h1>
   	  <div class='container'>
   	    <img id='computer-rock' src='images/rock.png'/>
   	    <img id='computer-paper' src='images/paper.png'/>	
   	    <img id='computer-scissors' src='images/scissors.png'/>
   	  </div>
-      <div class='container'>
-      	<h2 id='result'></h2>
-      </div>
     </main>
-    <footer></footer>	
+    <br>
+    <br>
+    <footer>
+      <h1 id='score'>Player Score: W:0 D:0 L:0</h1>	
+    </footer>	
   </body>	
 </html>

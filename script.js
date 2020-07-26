@@ -1,6 +1,9 @@
+let win = 0;
+let draw = 0;
+let loss = 0;
+
 function randomChoice() {
 	choice = Math.floor(Math.random() * Math.floor(3));
-	
 	if (choice === 0) {
 		return 'rock';
 	} else if (choice === 1) {
@@ -12,19 +15,19 @@ function randomChoice() {
 
 function result(playerChoice, computerChoice) {
 	if (playerChoice === 'rock' && computerChoice === 'paper') {
-		return 'You lose...';
+		loss++;
 	} else if (playerChoice === 'rock' && computerChoice === 'scissors') {
-		return 'You win!!!';
+		win++;
 	} else if (playerChoice === 'paper' && computerChoice === 'scissors') {
-		return 'You lose...';
+		loss++;
 	} else if (playerChoice === 'paper' && computerChoice === 'rock') {
-		return 'You win!!!';
+		win++;
 	} else if (playerChoice === 'scissors' && computerChoice === 'rock') {
-		return 'You lose...';
+		loss++
 	} else if (playerChoice === 'scissors' && computerChoice === 'paper') {
-		return 'You win!!!';
+		win++
 	} else {
-		return 'Draw';
+		draw++;
 	}
 }	
 
@@ -40,8 +43,8 @@ function reset() {
 function play(choice) {
 	reset();
 	const computerChoice = randomChoice();
-	const outcome = result(choice, computerChoice);
+	result(choice, computerChoice);
 	document.getElementById(choice).src = `images/selected-${choice}.png`;
 	document.getElementById(`computer-${computerChoice}`).src = `images/selected-${computerChoice}.png`;
-	document.getElementById('result').innerHTML = `Result: ${outcome}`;
+	document.getElementById('score').innerHTML = `Player Score: W:${win} D:${draw} L:${loss}`;
 }
