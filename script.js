@@ -48,3 +48,15 @@ function play(choice) {
 	document.getElementById(`computer-${computerChoice}`).src = `images/selected-${computerChoice}.png`;
 	document.getElementById('score').innerHTML = `Player Score: W:${win} D:${draw} L:${loss}`;
 }
+
+document.getElementById('rock').addEventListener("click", function(e) {
+	play('rock');	
+});
+
+document.getElementById('paper').addEventListener("click", function(e) {
+	play('paper');	
+});
+
+document.getElementById('scissors').addEventListener("click", function(e) {
+	play('scissors')
+});
