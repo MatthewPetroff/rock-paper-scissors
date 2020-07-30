@@ -1,4 +1,4 @@
-## To-do App
+## Rock, Paper, Scissors Game
 
 _Rock, Paper, Scissors game where the user plays against the computer._
 
