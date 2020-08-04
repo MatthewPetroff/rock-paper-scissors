@@ -1,43 +1,46 @@
-let win = 0;
-let draw = 0;
-let loss = 0;
+const ROCK = 'rock';
+const PAPER = 'paper';
+const SCISSORS = 'scissors';
+
+let WIN = 0;
+let DRAW = 0;
+let LOSS = 0;
 
 function randomChoice() {
-	choice = Math.floor(Math.random() * Math.floor(3));
+	const choice = Math.floor(Math.random() * Math.floor(3));
 	if (choice === 0) {
-		return 'rock';
+		return ROCK;
 	} else if (choice === 1) {
-		return 'paper';
+		return PAPER;
 	} else {
-		return 'scissors';
+		return SCISSORS;
 	}
 }
 
 function result(playerChoice, computerChoice) {
-	if (playerChoice === 'rock' && computerChoice === 'paper') {
-		loss++;
-	} else if (playerChoice === 'rock' && computerChoice === 'scissors') {
-		win++;
-	} else if (playerChoice === 'paper' && computerChoice === 'scissors') {
-		loss++;
-	} else if (playerChoice === 'paper' && computerChoice === 'rock') {
-		win++;
-	} else if (playerChoice === 'scissors' && computerChoice === 'rock') {
-		loss++;
-	} else if (playerChoice === 'scissors' && computerChoice === 'paper') {
-		win++;
+	const rockLosesToPaper = (playerChoice === ROCK && computerChoice === PAPER);
+	const paperLosesToScissors = (playerChoice === PAPER && computerChoice === SCISSORS);
+	const scissorsLoseToRock = (playerChoice === SCISSORS && computerChoice === ROCK);
+	const rockBeatsScissors = (playerChoice === ROCK && computerChoice === SCISSORS);
+	const paperBeatsRock = (playerChoice === PAPER && computerChoice === ROCK);
+	const scissorsBeatPaper = (playerChoice === SCISSORS && computerChoice === PAPER);
+
+	if (rockLosesToPaper || paperLosesToScissors || scissorsLoseToRock) {
+		LOSS++;
+	} else if (rockBeatsScissors || paperBeatsRock || scissorsBeatPaper) {
+		WIN++;
 	} else {
-		draw++;
+		DRAW++;
 	}
 }	
 
 function reset() {
-	document.getElementById('rock').src = 'images/rock.png';
-	document.getElementById('paper').src = 'images/paper.png';
-	document.getElementById('scissors').src = 'images/scissors.png';
-	document.getElementById('computer-rock').src = 'images/rock.png';
-	document.getElementById('computer-paper').src = 'images/paper.png';
-	document.getElementById('computer-scissors').src = 'images/scissors.png';
+	document.getElementById(ROCK).src = `images/${ROCK}.png`;
+	document.getElementById(PAPER).src = `images/${PAPER}.png`;
+	document.getElementById(SCISSORS).src = `images/${SCISSORS}.png`;
+	document.getElementById(`computer-${ROCK}`).src = `images/${ROCK}.png`;
+	document.getElementById(`computer-${PAPER}`).src = `images/${PAPER}.png`;
+	document.getElementById(`computer-${SCISSORS}`).src = `images/${SCISSORS}.png`;
 }
 
 function play(choice) {
@@ -46,17 +49,17 @@ function play(choice) {
 	result(choice, computerChoice);
 	document.getElementById(choice).src = `images/selected-${choice}.png`;
 	document.getElementById(`computer-${computerChoice}`).src = `images/selected-${computerChoice}.png`;
-	document.getElementById('score').innerHTML = `Player Score: W:${win} D:${draw} L:${loss}`;
+	document.getElementById('score').innerHTML = `Player Score: W:${WIN} D:${DRAW} L:${LOSS}`;
 }
 
-document.getElementById('rock').addEventListener("click", function(e) {
-	play('rock');	
+document.getElementById(ROCK).addEventListener("click", function(e) {
+	play(ROCK);	
 });
 
-document.getElementById('paper').addEventListener("click", function(e) {
-	play('paper');	
+document.getElementById(PAPER).addEventListener("click", function(e) {
+	play(PAPER);	
 });
 
-document.getElementById('scissors').addEventListener("click", function(e) {
-	play('scissors')
+document.getElementById(SCISSORS).addEventListener("click", function(e) {
+	play(SCISSORS)
 });
